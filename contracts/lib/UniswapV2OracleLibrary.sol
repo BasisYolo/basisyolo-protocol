@@ -1,8 +1,7 @@
-// SPDX-License-Identifier: MIT
-pragma solidity >=0.6.0 <0.8.0;
+pragma solidity ^0.6.0;
 
-import {FixedPoint} from './FixedPoint.sol';
-import {IUniswapV2Pair} from '../interfaces/IUniswapV2Pair.sol';
+import './FixedPoint.sol';
+import '../interfaces/IUniswapV2Pair.sol';
 
 // library with helper methods for oracles that are concerned with computing average prices
 library UniswapV2OracleLibrary {
@@ -28,8 +27,11 @@ library UniswapV2OracleLibrary {
         price1Cumulative = IUniswapV2Pair(pair).price1CumulativeLast();
 
         // if time has elapsed since the last update on the pair, mock the accumulated price values
-        (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast) =
-            IUniswapV2Pair(pair).getReserves();
+        (
+            uint112 reserve0,
+            uint112 reserve1,
+            uint32 blockTimestampLast
+        ) = IUniswapV2Pair(pair).getReserves();
         if (blockTimestampLast != blockTimestamp) {
             // subtraction overflow is desired
             uint32 timeElapsed = blockTimestamp - blockTimestampLast;
