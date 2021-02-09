@@ -2,7 +2,7 @@
 
 
 
-Basis Yolo is a lightweight implementation of the [Basis Yolo Protocol](basisyolo.com) on Ethereum. 
+Basis Yolo is a lightweight implementation of the [Basis Yolo Protocol](basisyolo.com) on HECO. 
 
 ## History of Basis 
 
